@@ -21,11 +21,10 @@ public class pruebaConexion {
     @GetMapping
     public ResponseEntity<HashMap<String, List<users>>> prueba(){
         users user = new users();
-
         HashMap<String, List<users>> users = new HashMap<>();
         Logger logger = Logger.getLogger(pruebaConexion.class.getName());
         try(Statement Sql = conector.getConnection().createStatement()){
-            List<users> usuarios = new ArrayList();
+            List<users> usuarios = new ArrayList<>();
             String Query = "SELECT * FROM usuarios";
             ResultSet res = Sql.executeQuery(Query);
 
