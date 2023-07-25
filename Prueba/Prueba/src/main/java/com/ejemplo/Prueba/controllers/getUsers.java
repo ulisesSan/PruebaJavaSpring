@@ -11,18 +11,19 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/pruebaConexion")
-public class pruebaConexion {
+public class getUsers {
     
     @GetMapping
     public ResponseEntity<HashMap<String, List<users>>> prueba(){
         users user = new users();
         HashMap<String, List<users>> users = new HashMap<>();
-        Logger logger = Logger.getLogger(pruebaConexion.class.getName());
+        Logger logger = Logger.getLogger(getUsers.class.getName());
         try(Statement Sql = conector.getConnection().createStatement()){
             List<users> usuarios = new ArrayList<>();
             String Query = "SELECT * FROM usuarios";
@@ -31,7 +32,7 @@ public class pruebaConexion {
             while(res.next()){
                 user.setID(res.getString(1));
                 user.setNombre(res.getString(2));
-                user.setAP( res.getString(3));
+                user.setAP(res.getString(3));
                 user.setAm(res.getString(4));
                 user.setStatus(res.getString(5));
                 user.setDirection(res.getString(6));
