@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class getUsers {
     
     @GetMapping
-    public ResponseEntity<HashMap<String, List<users>>> prueba(){
+    public static ResponseEntity<HashMap<String, List<users>>> prueba(){
         users user = new users();
         HashMap<String, List<users>> users = new HashMap<>();
         Logger logger = Logger.getLogger(getUsers.class.getName());

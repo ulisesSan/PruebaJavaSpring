@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/collatz")
 public class collatz {
     @GetMapping
-    public ResponseEntity<HashMap<String,List<String>>> conjetura(String number){
+    public static ResponseEntity<HashMap<String,List<String>>> conjetura(String number){
         HashMap<String, List<String>> collatzGuess = new HashMap<>();
         List<String> collatzNombers = new ArrayList<>();
         int getNumber;
         try{
-            if(number == null){
+            if(number == null || number == ""){
             collatzNombers.add("Se obtiene Cadena Vacia");
         }else{
             getNumber = Integer.parseInt(number);
